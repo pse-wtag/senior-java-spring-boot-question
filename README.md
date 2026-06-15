@@ -3,6 +3,7 @@
 ## 📋 Table of Contents
 - [1.0. Stream API](#10-stream-api)
   - [1.1. What is Functional Interface in Java](#11-what-is-functional-interface-in-java)
+- [2.0. Concurrency, Parallelism & Async](#10-Concurrency-Parallelism-Async)
 
 ---
 
@@ -135,6 +136,10 @@ enum Gender {
 }
 
 ```
+## 2.0. Concurrency, Parallelism & Async
+### 4.1. Concurrency
+- Definition: Concurrency means multiple tasks are in progress at the same time, but they are not executing simultaneously; instead, they take turns so rapidly that it creates the illusion of parallel work.
 
+- Context Switching: This is the underlying process (also called time-slicing) where a single CPU core rotates between tasks by assigning them tiny time slots, pausing them, saving their current state, and instantly moving to the next.
 
-
+![Concurrent Diagram]()
