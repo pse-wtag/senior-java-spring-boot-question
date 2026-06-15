@@ -24,3 +24,25 @@ public interface Predicate<T> {
     }
 }
 ```
+### 1.3. Types of Functional Interfaces
+1. Function
+2. Supplier
+3. Consumer
+4. Predicate
+5. UnaryOperator
+6. BinaryOperatorperator
+### 1.4. Difference between Supplier vs Consumer
+Supplier: Does not accept any argument but returns a result R.
+```java
+public interface Consumer<T> {
+    void accept(T t);
+}
+```
+Consumer: Accepts an argument T but returns no result void.
+```java
+public interface Supplier<R> {
+    R get();
+}
+```
+
+
