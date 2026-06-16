@@ -93,17 +93,34 @@ public StudentController {
 
 ### Q3.1. What is an ORM?
 #### Target Answer
+- An ORM framework maps an object-oriented domain model to a relational database.
 
 ### Q3.2. What are the different types of mappings in Hibernate?
 #### Target Answer
+1. One-to-One
+2. One-to-Many
+3. Many-to-One
+4. Many-to-Many
 
 ### Q3.3. What is N + 1 Queries?
 #### Target Answer
+- Executes one query to fetch parent entities (1) and then executes N additional queries to fetch associated child entities lazily
+- Occurs with relationship: `` @OneToMany `` and ``` @ManyToMany ```
 
 ### Q3.4. How to avoid N + 1 Queries
 #### Targer Answer
+- Use Lazy Fetch + Batch size
+```java
 
-
+@BatchSize(size = 10)
+@OneToMany(fetch = FetchType.LAZY)
+private List<Order> orders;
+```
+- @EntityGraph allows you to define fetch plans dynamically without changing entity fetch type.
+```java
+@EntityGraph(attributePaths = "orders")
+List<User> findAll();
+```
 ## 🎯 Candidate Final Tally Matrix
 | Question | Answer | Status ✅ ❌ | Mark |
 | :--- | :--- | :---: | :---: 
