@@ -1,38 +1,69 @@
-# senior-spring-boot-question
+3# Java & Spring Boot Technical Interview Framework: Streams, Optional & Concurrency
 
-## 📋 Table of Contents
-- [1.0. Stream API](#10-stream-api)
-  - [1.1. What is Functional Interface in Java](#11-what-is-functional-interface-in-java)
-- [2.0. Concurrency, Parallelism & Async](#10-Concurrency-Parallelism-Async)
+This repository contains a comprehensive, rubric-driven technical interview guide and evaluation framework for assessing senior-level Java backend developers. It uses a structured **Question & Answer (Q&A)** layout paired with real-time **Interviewer Assessment Matrix Panels** to support objective, quantifiable evaluations during technical screenings.
+
+All practical code challenges are written using modern **Java 22/25 single-file source syntax** (implicit top-level classes and instance `main` entry points), utilizing immutable Java Records, type-safe Enums, and advanced stream collectors.
 
 ---
 
-## 1.0. Stream API
+## 📋 Table of Contents
+- [1.0. Stream API & Functional Programming](#10-stream-api--functional-programming)
+  - [Q1.1. What is a Functional Interface in Java?](#q11-what-is-a-functional-interface-in-java)
+  - [Q1.2. How do you add more than one method to a Functional Interface?](#q12-how-do-you-add-more-than-one-method-to-a-functional-interface)
+  - [Q1.3. What are the core types of Functional Interfaces provided in Java?](#q13-what-are-the-core-types-of-functional-interfaces-provided-in-java)
+  - [Q1.4. What is the difference between a Supplier and a Consumer?](#q14-what-is-the-difference-between-a-supplier-and-a-consumer)
+  - [Q1.5. What is the difference between map() and flatMap() in Streams?](#q15-what-is-the-difference-between-map-and-flatmap-in-streams)
+  - [Q1.6. Stream Exercise 1: Element Frequency Counter](#q16-stream-exercise-1-element-frequency-counter)
+  - [Q1.7. Stream Exercise 2: Object Pipeline Filtering & Transformation](#q17-stream-exercise-2-object-pipeline-filtering--transformation)
+- [2.0. Concurrency, Parallelism & Async](#20-concurrency-parallelism--async)
+  - [Q2.1. What is Concurrency and how does Context Switching work?](#q21-what-is-concurrency-and-how-does-context-switching-work)
+  - [Q2.2. What is Parallelism and what are its core architectural risks?](#q22-what-is-parallelism-and-what-are-its-core-architectural-risks)
+  - [Q2.3. What is Asynchronous Programming and how does it prevent blocking?](#q23-what-is-asynchronous-programming-and-how-does-it-prevent-blocking)
+- [3.0. Multi-Threading Failures & States](#30-multi-threading-failures--states)
+  - [Q3.1. What is a Deadlock and how can it be mitigated or prevented?](#q31-what-is-a-deadlock-and-how-can-it-be-mitigated-or-prevented)
+  - [Q3.2. What is a Livelock and how does its system impact differ from a Deadlock?](#q32-what-is-a-livelock-and-how-does-its-system-impact-differ-from-a-deadlock)
+  - [Q3.3. What is a Race Condition and what concurrency mechanics resolve it?](#q33-what-is-a-race-condition-and-what-concurrency-mechanics-resolve-it)
+- [🎯 Candidate Final Tally Matrix](#-candidate-final-tally-matrix)
 
-### 1.1. What is Functional Interface in Java
-- It must have exactly one abstract method.
-### 1.2. How to add more than one method in Functional Interface
-- Can have any number of default methods since they are not abstract and already implemented
+---
+
+## 1.0. Stream API & Functional Programming
+
+### Q1.1. What is a Functional Interface in Java?
+#### Target Answer
+A Functional Interface is an interface that possesses **exactly one abstract method**. It serves as the formal structural target contract for lambda expressions and method references introduced in Java 8+.
+
+### Q1.2. How do you add more than one method to a Functional Interface?
+#### Target Answer
+You can include multiple additional methods by defining them as **`default` methods**. Because this option supply a concrete runtime implementation block, do not violate the interface's structural single abstract method constraint. Adding the `@FunctionalInterface` annotation prompts the compiler to enforce this design format.
+
 ```java
 @FunctionalInterface
 public interface Predicate<T> {
 
+    // The single abstract method contract
     boolean test(T t);
 
+    // Default method (permitted because it provides an implementation)
     default Predicate<T> and(Predicate<? super T> other) {
         Objects.requireNonNull(other);
         return (t) -> test(t) && other.test(t);
     }
 }
 ```
-### 1.3. Types of Functional Interfaces
+
+
+### Q1.3. What are the core types of Functional Interfaces provided in Java?
+#### Target Answer
 1. Function
 2. Supplier
 3. Consumer
 4. Predicate
 5. UnaryOperator
 6. BinaryOperatorperator
-### 1.4. Difference between Supplier vs Consumer
+
+### Q1.4. What is the difference between a Supplier and a Consumer?
+#### Target Answer
 Supplier: Does not accept any argument but returns a result R.
 ```java
 public interface Consumer<T> {
@@ -45,24 +76,26 @@ public interface Supplier<R> {
     R get();
 }
 ```
-### 1.5. Difference between map and flatmap in Streams?
-map(): transform each element in the streams.
-```java
-.map(r ->)
-```
-flatmap(): flattens nested structures.
-```java
-.flatmap(r -> )
-```
-### 1.6. Java Stream Exercises
-1. Find the name that appears more than 2 time
-  - Explain Process
-    - Hint: Use .filter(Objects::nonNull)
-    - Hint: Need to create a Map<String, Long>
-    - Hint: Use Collectors.groupBy()
-    - Hint: Use Collectors.counting()
-  - If using for loops
-    - Explain imperative (How to do it and what to do) vs declarative programming (what to do) use Stream apis
+
+### Q1.5. What is the difference between map() and flatMap() in Streams?
+#### Targer Answer
+- **`map()`**:
+  - Used for object transformation
+  - 1 to 1
+- **`flatmap()`**
+  - Used for structural flattening
+  - 1 to Many
+
+### Q1.6. Stream Exercise 1: Element Frequency Counter
+#### Find the name that appears more than 2 times
+#### Target Answer
+- Explain Process
+  - Hint: Use .filter(Objects::nonNull)
+  - Hint: Need to create a Map<String, Long>
+  - Hint: Use Collectors.groupBy()
+  - Hint: Use Collectors.counting()
+- If using for loops
+  - Explain imperative (How to do it and what to do) vs declarative programming (what to do) use Stream apis
 ```java
 List<String> names = new ArrayList<>();
 void main() {
@@ -92,9 +125,10 @@ List<String> addingNames() {
     names.add("Paul");
   return names;
 }
-
 ```
-2. Find all the names that start with the letter 'j/J', Male and the age above 18 and return the name in uppercase
+### Q1.7. Stream Exercise 2: Object Pipeline Filtering & Transformation
+#### Find all the names that start with the letter 'j/J', Male and the age above 18 and return the name in uppercase
+#### Target Answer
 ```java
 void main() {
     List<String> namesStartWithLetterJAndIsAbove18AndMale = populateNames().stream()
@@ -105,6 +139,7 @@ void main() {
             .toList();
     IO.println(namesStartWithLetterJAndIsAbove18AndMale);
 }
+
 public List<Person> populateNames() {
     return List.of(
             new Person("John", Gender.MALE, 30),
@@ -115,6 +150,7 @@ public List<Person> populateNames() {
             new Person("Smith", Gender.OTHER, 30)
     );
 }
+
 record Person(String name, Gender gender, Integer age) {
     public Person {
         Objects.requireNonNull(gender);
@@ -129,17 +165,16 @@ record Person(String name, Gender gender, Integer age) {
         return name().toUpperCase();
     }
 }
+
 enum Gender {
   MALE,
   FEMALE,
   OTHER
 }
-
 ```
+---
+
 ## 2.0. Concurrency, Parallelism & Async
-### 4.1. Concurrency
-- Definition: Concurrency means multiple tasks are in progress at the same time, but they are not executing simultaneously; instead, they take turns so rapidly that it creates the illusion of parallel work.
 
-- Context Switching: This is the underlying process (also called time-slicing) where a single CPU core rotates between tasks by assigning them tiny time slots, pausing them, saving their current state, and instantly moving to the next.
-
-![Concurrent Diagram]()
+### Q2.1. What is Concurrency and how does Context Switching work?
+#### Target Answer
