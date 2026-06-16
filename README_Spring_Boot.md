@@ -8,16 +8,15 @@
   - [Q1.2. What does idempotent mean?](#q12-what-does-idempotent-mean)
   - [Q1.3. Http Method which is not idempotent?](#q13-http-method-which-is-not-idempotent)
   - [Q1.4. @RestController vs @Controller?](#q14-restcontroller-vs-controller)
-- [2.0. @Transactional](#20-Transactional)
-  - [Q2.1. What is the purpose of @Transactional?](#q21-what-is-the-purpose-of--transactional)
-  - [Q2.2. What is Parallelism and what are its core architectural risks?](#q22-what-is-parallelism-and-what-are-its-core-architectural-risks)
-  - [Q2.3. What is Asynchronous Programming and how does it prevent blocking?](#q23-what-is-asynchronous-programming-and-how-does-it-prevent-blocking)
-- [3.0. Multi-Threading Failures & States](#30-multi-threading-failures--states)
-  - [Q3.1. What is a Deadlock?](#q31-what-is-a-deadlock)
-  - [Q3.2. What is a Livelock and how does its system impact differ from a Deadlock?](#q32-what-is-a-livelock-and-how-does-its-system-impact-differ-from-a-deadlock)
-  - [Q3.3. What is a Race Condition and what concurrency mechanics resolve it?](#q33-what-is-a-race-condition-and-what-concurrency-mechanics-resolve-it)
-- [🎯 Candidate Final Tally Matrix](#-candidate-final-tally-matrix)
-
+- [2.0. @Transactional](#20-transactional)
+  - [Q2.1. What is the purpose of @Transactional?](#q21-what-is-the-purpose-of-transactional)
+  - [Q2.2. How @Transactional works under the hood?](#q22-how-transactional-works-under-the-hood)
+  - [Q2.3. Where @Transactional Should Live?](#q23-where-transactional-should-live)
+- [3.0. Hibernate](#30-hibernate)
+  - [Q3.1. What is an ORM?](#q31-what-is-an-orm)
+  - [Q3.2. What are the different types of mappings in Hibernate?](#q32-what-are-the-different-types-of-mappings-in-hibernate)
+  - [Q3.3. What is N + 1 Queries](#q33-what-is-n-1-queries)
+  - [Q3.4. How to avoid N + 1 Queries](#q34-how-to-avoid-n-1-queries)
 ---
 
 ## 1.0. Rest API
@@ -69,7 +68,40 @@ public StudentController {
 
 ### Q2.1. What is the purpose of @Transactional?
 ### Target Answer
+- Transaction os a logical unit of work.
+- **``Single Logical Unit & Rollback``**: A transaction treats multiple database steps as a single all-or-nothing job; if even one step fails, a rollback instantly undoes everything to keep your data safe.
+- **``ACID``**: To guarantee this level of reliability, transactions are strictly governed by ACID properties: Atomicity (all-or-nothing execution), Consistency (ensuring the system stays valid), Isolation (preventing concurrent tasks from interfering with each other), and Durability (ensuring committed data survives system crashes).
 
+### Q2.2. How @Transactional works under the hood?
+### Targer Answer
+- **``Core Concept``**:
+    - Use the Proxy Design Pattern with Spring AOP
+    - Defines a transactional boundary by wrapping service class in dynamic proxy object
+- **``Under-the-hood``**: external client invokes service hit the proxy wrapper first
+    - **``Interception & Start``**: proxy intercepts the call, borrows a DB connection and start transaction ``` connection.setAutoCommit(false) ```
+    - **``Delegation``**: Proxy forward the call to your real method to execute business logic
+    - **``Commit or rollback``**: If method successful proxy call ``` commit() ```. If runtime exception, proxy catches it and tiggers a ``` rollback ```
+- **``Golden Rule``**:
+    - Spring proxies can only intercept public methods.
+
+### Q2.3. Where @Transactional Should Live?
+#### Target Answer
+- On service layer method that define a business operation
+
+---
+## 3.0. Hibernate
+
+### Q3.1. What is an ORM?
+#### Target Answer
+
+### Q3.2. What are the different types of mappings in Hibernate?
+#### Target Answer
+
+### Q3.3. What is N + 1 Queries?
+#### Target Answer
+
+### Q3.4. How to avoid N + 1 Queries
+#### Targer Answer
 
 
 ## 🎯 Candidate Final Tally Matrix
