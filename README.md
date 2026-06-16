@@ -1,8 +1,4 @@
-3# Java & Spring Boot Technical Interview Framework: Streams, Optional & Concurrency
-
-This repository contains a comprehensive, rubric-driven technical interview guide and evaluation framework for assessing senior-level Java backend developers. It uses a structured **Question & Answer (Q&A)** layout paired with real-time **Interviewer Assessment Matrix Panels** to support objective, quantifiable evaluations during technical screenings.
-
-All practical code challenges are written using modern **Java 22/25 single-file source syntax** (implicit top-level classes and instance `main` entry points), utilizing immutable Java Records, type-safe Enums, and advanced stream collectors.
+# Java Senior Technical Interview Framework
 
 ---
 
