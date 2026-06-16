@@ -178,3 +178,17 @@ enum Gender {
 
 ### Q2.1. What is Concurrency and how does Context Switching work?
 #### Target Answer
+- Concurrency means multiple tasks are in progress at the same time, but they are not executing simultaneously; instead, they take turns so rapidly that it creates the illusion of parallel work.
+- **`Context Switching`**: This is the underlying process (also called time-slicing) where a single CPU core rotates between tasks by assigning them tiny time slots, pausing them, saving their current state, and instantly moving to the next.
+
+### Q2.2. What is Parallelism and what are its core architectural risks?
+#### Target Answer
+- **`Definition`**: Parallelism is the execution of multiple tasks at the exact same moment across separate CPU cores without any turn-taking, allowing true simultaneous processing.
+- **`Requirements & Use Cases`**: It requires multiple physical CPU cores and independent, CPU-bound tasks (e.g., video encoding, machine learning, or image processing) to achieve linear speed gains.
+- **`The Challenges`**: Parallelism introduces race conditions when multiple cores modify shared memory at the same time. Resolving this requires complex synchronization primitives (like mutexes or semaphores), which can cause performance bottlenecks like lock contention and introduce subtle, hard-to-debug errors.
+
+### Q2.3. What is Asynchronous Programming and how does it prevent blocking?
+#### Target Answer
+- Asynchronous programming is a software design, not a hardware feature. It solves one main problem: How can a single thread do multiple things without wasting time sitting idle?
+- Instead of freezing (blocking) while waiting for a slow task to finish (like fetching data from a database), the thread drops off the request, leaves a "note" (a callback) on what to do next, and immediately jumps to other work. When the slow task finally finishes, a mechanism called the Event Loop picks up that note and tells the thread to finish the job.
+
