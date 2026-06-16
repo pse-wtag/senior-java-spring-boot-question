@@ -20,7 +20,7 @@ All practical code challenges are written using modern **Java 22/25 single-file 
   - [Q2.2. What is Parallelism and what are its core architectural risks?](#q22-what-is-parallelism-and-what-are-its-core-architectural-risks)
   - [Q2.3. What is Asynchronous Programming and how does it prevent blocking?](#q23-what-is-asynchronous-programming-and-how-does-it-prevent-blocking)
 - [3.0. Multi-Threading Failures & States](#30-multi-threading-failures--states)
-  - [Q3.1. What is a Deadlock?](#q31-what-is-a-deadlock-and-how-can-it-be-mitigated-or-prevented)
+  - [Q3.1. What is a Deadlock?](#q31-what-is-a-deadlock)
   - [Q3.2. What is a Livelock and how does its system impact differ from a Deadlock?](#q32-what-is-a-livelock-and-how-does-its-system-impact-differ-from-a-deadlock)
   - [Q3.3. What is a Race Condition and what concurrency mechanics resolve it?](#q33-what-is-a-race-condition-and-what-concurrency-mechanics-resolve-it)
 - [🎯 Candidate Final Tally Matrix](#-candidate-final-tally-matrix)
@@ -196,17 +196,33 @@ enum Gender {
 
 ### Q3.1. What is a Deadlock?
 #### Target Answer
-**``Definition``**: A deadlock is a situation in a multi-threaded environment where two or more threads are permanently blocked because each thread is waiting for a resource or lock held by another thread in the cycle.
-**``Impact``**: Because none of the threads can release their resources until they get the ones they are waiting for, the affected parts of the application stall or fail completely.
+- **``Definition``**: A deadlock is a situation in a multi-threaded environment where two or more threads are permanently blocked because each thread is waiting for a resource or lock held by another thread in the cycle.
+- **``Impact``**: Because none of the threads can release their resources until they get the ones they are waiting for, the affected parts of the application stall or fail completely.
 
 ### Q3.2. What is a Livelock and how does its system impact differ from a Deadlock?
 #### Target Answer
-**``Definition``**: Livelock is a concurrency problem similar to a deadlock, but instead of freezing or waiting indefinitely, the involved threads continuously change their states in response to each other without making any actual forward progress.
-**``Impact``**: The threads remain active and trapped in an endless cycle of status updates, completely preventing them from executing or completing their intended tasks.
+- **``Definition``**: Livelock is a concurrency problem similar to a deadlock, but instead of freezing or waiting indefinitely, the involved threads continuously change their states in response to each other without making any actual forward progress.
+- **``Impact``**: The threads remain active and trapped in an endless cycle of status updates, completely preventing them from executing or completing their intended tasks.
 
 ### Q3.3. What is a Race Condition and what concurrency mechanics resolve it?
 #### Target Answer
-**``Definition``**: A race condition occurs when multiple threads attempt to modify a shared resource simultaneously without proper synchronization.
-**``Impact``**: Because threads run independently, their operations can overlap in unpredictable ways, resulting in inconsistent data and unexpected application behavior.
+- **``Definition``**: A race condition occurs when multiple threads attempt to modify a shared resource simultaneously without proper synchronization.
+- **``Impact``**: Because threads run independently, their operations can overlap in unpredictable ways, resulting in inconsistent data and unexpected application behavior.
 - Use synchronized methood or block to avoid
 
+## 🎯 Candidate Final Tally Matrix
+| Question | Answer | Status ✅ ❌ | Mark |
+| :--- | :--- | :---: | :---: 
+| **Q1.1** | |  |  |
+| **Q1.2** | |  |  |
+| **Q1.3** | |  |  |
+| **Q1.4** | |  |  |
+| **Q1.5** | |  |  |
+| **Q1.6** | |  |  |
+| **Q1.7** | |  |  |
+| **Q2.1** | |  |  |
+| **Q2.2** | |  |  |
+| **Q2.3** | |  |  |
+| **Q3.1** | |  |  |
+| **Q3.4** | |  |  |
+| **Q3.3** | |  |  |
