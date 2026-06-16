@@ -20,7 +20,7 @@ All practical code challenges are written using modern **Java 22/25 single-file 
   - [Q2.2. What is Parallelism and what are its core architectural risks?](#q22-what-is-parallelism-and-what-are-its-core-architectural-risks)
   - [Q2.3. What is Asynchronous Programming and how does it prevent blocking?](#q23-what-is-asynchronous-programming-and-how-does-it-prevent-blocking)
 - [3.0. Multi-Threading Failures & States](#30-multi-threading-failures--states)
-  - [Q3.1. What is a Deadlock and how can it be mitigated or prevented?](#q31-what-is-a-deadlock-and-how-can-it-be-mitigated-or-prevented)
+  - [Q3.1. What is a Deadlock?](#q31-what-is-a-deadlock-and-how-can-it-be-mitigated-or-prevented)
   - [Q3.2. What is a Livelock and how does its system impact differ from a Deadlock?](#q32-what-is-a-livelock-and-how-does-its-system-impact-differ-from-a-deadlock)
   - [Q3.3. What is a Race Condition and what concurrency mechanics resolve it?](#q33-what-is-a-race-condition-and-what-concurrency-mechanics-resolve-it)
 - [🎯 Candidate Final Tally Matrix](#-candidate-final-tally-matrix)
@@ -191,4 +191,22 @@ enum Gender {
 #### Target Answer
 - Asynchronous programming is a software design, not a hardware feature. It solves one main problem: How can a single thread do multiple things without wasting time sitting idle?
 - Instead of freezing (blocking) while waiting for a slow task to finish (like fetching data from a database), the thread drops off the request, leaves a "note" (a callback) on what to do next, and immediately jumps to other work. When the slow task finally finishes, a mechanism called the Event Loop picks up that note and tells the thread to finish the job.
+
+## 3.0. Multi-Threading Failures & States
+
+### Q3.1. What is a Deadlock?
+#### Target Answer
+**``Definition``**: A deadlock is a situation in a multi-threaded environment where two or more threads are permanently blocked because each thread is waiting for a resource or lock held by another thread in the cycle.
+**``Impact``**: Because none of the threads can release their resources until they get the ones they are waiting for, the affected parts of the application stall or fail completely.
+
+### Q3.2. What is a Livelock and how does its system impact differ from a Deadlock?
+#### Target Answer
+**``Definition``**: Livelock is a concurrency problem similar to a deadlock, but instead of freezing or waiting indefinitely, the involved threads continuously change their states in response to each other without making any actual forward progress.
+**``Impact``**: The threads remain active and trapped in an endless cycle of status updates, completely preventing them from executing or completing their intended tasks.
+
+### Q3.3. What is a Race Condition and what concurrency mechanics resolve it?
+#### Target Answer
+**``Definition``**: A race condition occurs when multiple threads attempt to modify a shared resource simultaneously without proper synchronization.
+**``Impact``**: Because threads run independently, their operations can overlap in unpredictable ways, resulting in inconsistent data and unexpected application behavior.
+- Use synchronized methood or block to avoid
 
