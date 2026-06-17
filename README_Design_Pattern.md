@@ -1,11 +1,11 @@
-# Design Pattern Senior Technical Interview Framework
+# CICD Senior Technical Interview Framework
 
 ---
 
 ## 📋 Table of Contents
-- [1.0. Microservices](#10-microservices)
-  - [Q1.1. Give me some Microservice Design Pattern?](#q11-give-me-some-microservice-design-pattern)
-  - [Q1.2. How to handle distributed transaction in microservice?](#q12-how-to-handle-distributed-transaction-in-microservices)
+- [1.0. CICD](#10-cicd)
+  - [Q1.1. What is CICD?](#q11-what-is-cicd?)
+  - [Q1.2. What is blue-green deployment?](#q12-what-is-handle-distributed-transaction-in-microservices)
   - [Q1.3. Explain CQRS](#q13-explain-cqrs)
   - [Q1.4. What is the outbox pattern?](#q14-what-is-the-outbox-pattern)
   - [Q1.5. Our Spring Boot app is getting slow and timing out under heavy traffic. How would you investigate the root cause, and what strategies would you use to fix it?](#q15-our-spring-boot-app-is-getting-slow-and-timing-out-under-heavy-traffic-how-would-you-investigate-the-root-caus-and-what-strategies-would-you-use-to-fix-it)
