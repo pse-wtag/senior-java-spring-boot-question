@@ -95,7 +95,7 @@ public StudentController {
 #### Target Answer
 - An ORM framework maps an object-oriented domain model to a relational database.
 
-### Q3.2. What are the different types of mappings in Hibernate?
+### Q3.2. What are the different types of relational mappings in Hibernate?
 #### Target Answer
 1. One-to-One
 2. One-to-Many
@@ -124,14 +124,15 @@ List<User> findAll();
 ## 🎯 Candidate Final Tally Matrix
 | Question | Answer | Status ✅ ❌ | Mark |
 | :--- | :--- | :---: | :---: 
-| **Q1.1** | |  |  |
-| **Q1.2** | |  |  |
-| **Q1.3** | |  |  |
-| **Q1.4** | |  |  |
-| **Q2.1** | |  |  |
-| **Q2.2** | |  |  |
-| **Q2.3** | |  |  |
-| **Q3.1** | |  |  |
-| **Q3.2** | |  |  |
-| **Q3.3** | |  |  |
-| **Q3.4** | |  |  |
+| **Q1.1** | - was able to answer the types of http method in spring <br> - also get the annotation naming | ✅ | 10/10 |
+| **Q1.2** | - was able to give the definition of idempotent | ✅ | 10/10 |
+| **Q1.3** | - was not able to answer which http method is not idempotent | ❌ | 0/10 |
+| **Q1.4** | - knew the difference between @RestController vs @Controller <br> - One has @ResponseBody (RestController) <br> - also what does @ResponseBody do | ✅ | 10/10 |
+| **Q2.1** | - Knew what was the function of the @Transactional in Spring boot <br> - rollback if there is an expection <br> - Preserve the ACID principle | ✅ | 10/10 |
+| **Q2.2** | - Did not know how it work under the hood <br> - Did not know it uses Proxy Design pattern <br> - Though we can use the @Transaction in private method | ❌ | 0/10 |
+| **Q2.3** | - Knew that we need to add @Transaction in the Service layer <br> - Did not know why | ✅ | 5/10 |
+| **Q3.1** | - Partial knew what an orm is <br> - knew that hibernate is the default orm in spring boot | ✅ | 6/10 |
+| **Q3.2** | - Knew the types of relational mappings in hibernate | ✅ | 10/10 |
+| **Q3.3** | - Knew what is N+1 queuries | ✅ | 10/10 |
+| **Q3.4** | - Knew how to mitigate N+1 in spring using entity graph | ✅ | 10/10 |
+| **Note** | - Knew the purpose of @RestControllerAdvice <br> - Did not know about mapstuct and also what design pattern it use (Adapter patter) <br> - For mapping dto to entity vice versa <br> - Work mostly with monolith application <br> - Knew the difference between microservices and monolith application (Fat jar)| ✅ | 6/10 |

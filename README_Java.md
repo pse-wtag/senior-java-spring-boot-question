@@ -209,16 +209,17 @@ enum Gender {
 ## 🎯 Candidate Final Tally Matrix
 | Question | Answer | Status ✅ ❌ | Mark |
 | :--- | :--- | :---: | :---: 
-| **Q1.1** | |  |  |
-| **Q1.2** | |  |  |
-| **Q1.3** | |  |  |
-| **Q1.4** | |  |  |
-| **Q1.5** | |  |  |
-| **Q1.6** | |  |  |
-| **Q1.7** | |  |  |
-| **Q2.1** | |  |  |
-| **Q2.2** | |  |  |
-| **Q2.3** | |  |  |
-| **Q3.1** | |  |  |
-| **Q3.4** | |  |  |
-| **Q3.3** | |  |  |
+| **Q1.1** | - Did not know what stream api is did only Imperative style of coding | ❌ | 0/10 |
+| **Q1.2** | - Could not ask no experience in stream api | ❌ | 0/10 |
+| **Q1.3** | - Could not ask no experience in stream api | ❌ | 0/10 |
+| **Q1.4** | - Could not ask no experience in stream api | ❌ | 0/10 |
+| **Q1.5** | - Could not ask no experience in stream api | ❌ | 0/10 |
+| **Q1.6** | - Could not ask no experience in stream api | ❌ | 0/10 |
+| **Q1.7** | - Could not ask no experience in stream api | ❌ | 0/10 |
+| **Q2.1** | - Did not know about Concurrency | ❌ | 0/10 |
+| **Q2.2** | - Partially new about parallelism | ✅ | 4/10 |
+| **Q2.3** | - Did not know what a deadlock is | ❌ | 0/10 |
+| **Q3.1** | - Did not asked |  |  |
+| **Q3.4** | - Did not asked |  |  |
+| **Q3.3** | - Did not asked |  |  |
+| **Note** | - At first did not know the difference between map and flatmap <br> - Had to give example in typescript so that we could answer the question <br> - More a junior java dev than senior |  |  |

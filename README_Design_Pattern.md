@@ -3,9 +3,9 @@
 ---
 
 ## 📋 Table of Contents
-- [1.0. CICD](#10-cicd)
-  - [Q1.1. What is CICD?](#q11-what-is-cicd?)
-  - [Q1.2.  How to handle distributed transaction in microservice?x](#q12-what-is-handle-distributed-transaction-in-microservices)
+- [1.0. Microservies](#10-microservices)
+  - [Q1.1. Give me some Microservice Design Pattern?](#q11-give-me-some-microservice-design-pattern?)
+  - [Q1.2.  How to handle distributed transaction in microservice?](#q12-what-is-handle-distributed-transaction-in-microservices)
   - [Q1.3. Explain CQRS](#q13-explain-cqrs)
   - [Q1.4. What is the outbox pattern?](#q14-what-is-the-outbox-pattern)
   - [Q1.5. Our Spring Boot app is getting slow and timing out under heavy traffic. How would you investigate the root cause, and what strategies would you use to fix it?](#q15-our-spring-boot-app-is-getting-slow-and-timing-out-under-heavy-traffic-how-would-you-investigate-the-root-caus-and-what-strategies-would-you-use-to-fix-it)
@@ -52,3 +52,4 @@
 | **Q1.3** | |  |  |
 | **Q1.4** | |  |  |
 | **Q1.5** | |  |  |
+| **Note** | - Asked some design pattern in microservices did not know <br> - Ask about the api gateway pattern partially answered the question <br> - Did not know about CQRS | ✅ | 3/10 |

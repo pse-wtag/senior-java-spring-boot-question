@@ -202,14 +202,14 @@ runs-on:
 ## 🎯 Candidate Final Tally Matrix
 | Question | Answer | Status ✅ ❌ | Mark |
 | :--- | :--- | :---: | :---: 
-| **Q1.1** | |  |  |
+| **Q1.1** | - Knew about CICD the term <br> - Did not asked more details no time | ✅ | 5/10 |
 | **Q1.2** | |  |  |
 | **Q1.3** | |  |  |
 | **Q1.4** | |  |  |
-| **Q2.1** | |  |  |
-| **Q2.2** | |  |  |
-| **Q2.3** | |  |  |
-| **Q2.4** | |  |  |
-| **Q3.1** | |  |  |
-| **Q3.2** | |  |  |
-| **Q3.3** | |  |  |
+| **Q2.1** | - Did not do kubernetes |  |  |
+| **Q2.2** | - Did not do kubernetes |  |  |
+| **Q2.3** | - Did not do kubernetes |  |  |
+| **Q2.4** | - Did not do kubernetes |  |  |
+| **Q3.1** | - Did not know what a github runner is | ❌ | 0/10 |
+| **Q3.2** | - Knew how to handle api keys leaks in github <br> - using store secrets via GitHub management tools | ✅ | 10/10 |
+| **Q3.3** | - Did not have time to asked about renovate |  |  |
